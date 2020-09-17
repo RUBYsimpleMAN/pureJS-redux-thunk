@@ -7,16 +7,13 @@ function countrReducer(state = 42, action) {
   } else
   if (action.type === DECREMENT) {
     return state - 1
-  } else
-  if (action.type === ASYNC_DECREMENT) {
-    return state - 1
   }
 
   // default
   return state
 }
 
-const iniThemeState = { value: 'light'}
+const iniThemeState = { value: 'light' }
 
 function themeReducer(state = iniThemeState, action) {
   switch (action.type) {
