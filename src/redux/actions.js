@@ -31,8 +31,10 @@ export function undimButtons() {
 
 export function asyncDecrement() {
   return function(dispatch) {
+    dispatch(dimedButtons())
     setTimeout( () => {
       dispatch(decrement())
+      dispatch(undimButtons())
     }, 1300)
   }
 }

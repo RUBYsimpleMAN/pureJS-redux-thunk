@@ -5,6 +5,7 @@ import { rootReducer } from './redux/rootReducer'
 import { increment, decrement, asyncDecrement, themeToggle } from './redux/actions'
 import './styles.css'
 
+
 const varCounterOutputField = document.getElementById('idcounteroutputfield')
 const varButtonPlus         = document.getElementById('idbuttonplus')
 const varButtonMinus        = document.getElementById('idbuttonminus')
@@ -13,11 +14,11 @@ const varButtonTheme        = document.getElementById('idbuttontheme')
 
 const store = createStore(
   rootReducer,
-    compose(
-      applyMiddleware(thunk),
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
+)
 
 varButtonPlus.addEventListener('click', () => {
   store.dispatch(increment())
@@ -40,7 +41,11 @@ varButtonTheme.addEventListener('click', () => {
 store.subscribe( () => {
   const state = store.getState()
   varCounterOutputField.textContent = state.countr
-  document.body.className = state.theme.value
+  document.body.className = state.theme.value;
+
+  [varButtonMinus, varButtonPlus, varButtonTheme].forEach(elementBtn => {
+    elementBtn.disabled = state.theme.buttonsDimField
+  });
 })
 
 store.dispatch({type: 'UNEXIST_ACTIONTYPE'})

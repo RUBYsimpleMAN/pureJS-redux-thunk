@@ -1,5 +1,5 @@
-export const INCREMENT = 'INCREMENT' 
-export const DECREMENT = 'DECREMENT'
+export const INCREMENT    = 'INCREMENT' 
+export const DECREMENT    = 'DECREMENT'
 
 export const THEME_TOGGLE = 'THEME_TOGGLE'
 export const THEME_TOGGLE_DIMED_BUTTONS = 'THEME_TOGGLE_DIMED_BUTTONS'
