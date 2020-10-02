@@ -31,16 +31,16 @@ varButtonAsync.addEventListener('click', () => {
   store.dispatch(asyncDecrement())
 })
 
-store.subscribe( () => {
-    const state = store.getState()
-    varCounterOutputField.textContent = state.countr
-    document.body.className = state.theme.value
-  }
-)
 
 varButtonTheme.addEventListener('click', () => {
   const newTheme = document.body.classList.contains('light') ? 'dark' : 'light'
   store.dispatch(themeToggle(newTheme))
+})
+
+store.subscribe( () => {
+  const state = store.getState()
+  varCounterOutputField.textContent = state.countr
+  document.body.className = state.theme.value
 })
 
 store.dispatch({type: 'UNEXIST_ACTIONTYPE'})

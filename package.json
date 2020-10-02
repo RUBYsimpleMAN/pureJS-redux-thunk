@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "BROWSER=none webpack-dev-server --open",
     "build": "webpack --mode production"
   },
   "keywords": [],
